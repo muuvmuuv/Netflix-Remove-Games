@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "Netflix: Remove Games",
+  "version": "1.0.0",
+  "description": "Hides Netflix games: the Games tab, game rows, game cards and game heroes.",
+  "content_scripts": [
+    {
+      "matches": ["https://www.netflix.com/*"],
+      "css": ["hide-games.css"],
+      "run_at": "document_start"
+    }
+  ]
+}

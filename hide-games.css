@@ -1,0 +1,21 @@
+/* Netflix marks game UI with data-uia: cloud-game-card / mobile-game-card, play-game-button. */
+
+/* Games tab in the top navigation */
+[data-uia="tutorial+target-games"],
+
+/* Hero (billboard) featuring a game */
+[data-uia="browse-page-sections"] > section:has([data-uia="play-game-button"]),
+
+/* Rows made of game cards only */
+[data-uia^="carousel-row-section-"]:has([data-uia$="game-card"]):not(:has([data-uia$="-card"]:not([data-uia$="game-card"]))),
+
+/* Single game cards in mixed rows, search results, … */
+[data-virtual-slot]:has([data-uia$="game-card"]),
+[data-uia$="game-card"] {
+  display: none !important;
+}
+
+/* The page starts underneath the sticky nav; without the hero the first row would sit behind it. */
+[data-uia="browse-page-sections"]:has(> section [data-uia="play-game-button"]) {
+  padding-top: 100px;
+}
